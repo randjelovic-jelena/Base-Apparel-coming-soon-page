@@ -1,0 +1,234 @@
+/*Josefin Sans Google Font*/
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
+:root{
+
+  /*colors*/
+  --col-desaturated-red:hsl(0, 36%, 70%);
+  --col-soft-red: hsl(0, 93%, 68%);
+  --col-dark-grayish-red:hsl(0, 6%, 24%);
+  
+  /*radius*/
+  --radius:50px;
+
+}
+*{
+	padding:0;
+	margin:0;
+	box-sizing:border-box;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 16px;
+}
+body{
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: fixed;
+}
+.image-container, 
+.container-text{
+  width: 100%;
+}
+
+/*----------------------------
+-------MAIN TEXT, FORM--------
+-----------------------------*/
+.helper-div{
+  width: 500px;
+  position: absolute;
+  z-index: 100;
+  background-color: #ffffff38;
+  padding: 3rem 3rem 3rem 0rem;
+}
+.container-text{
+  padding: 5rem 10rem;
+  width: 60%;
+}
+.logo{
+  margin-bottom: 105px;
+}
+.main-heading{
+  font-size: 4.5rem;
+  text-transform: uppercase;
+  color: var(--col-dark-grayish-red);
+  margin-bottom: 25px;
+  letter-spacing: 6px;
+  line-break: strict;
+}
+.main-heading span{
+  font-weight: 200;
+  color: var(--col-dark-grayish-red);
+  font-size: 4.5rem;
+}
+.main-text{
+  color: var(--col-dark-grayish-red);
+  line-height: 24px;
+  margin-bottom: 3rem;
+}
+
+/*subscribe-form*/
+.subscribe-form{
+  width: 100%;
+  display: flex;
+  border-radius: var(--radius);
+  color: var(--col-soft-red);
+  position: relative;
+  border: 1px solid var(--col-soft-red);
+}
+.subscribe-form.warning{
+  border:'2px solid var(--col-soft-red)';
+}
+.email{
+  width: 100%;
+  padding-left: 2rem;
+  border: none;
+  border-radius: var(--radius);
+  color: var(--col-dark-grayish-red);
+  background-color: transparent;
+}
+.email::placeholder{
+  color:var(--col-desaturated-red);
+}
+.email:focus{
+  outline: none;
+}
+.email-status{
+  color: var(--col-soft-red);
+  position: absolute;
+  bottom: -28px;
+  left: 19px;
+  font-size: 0.8rem;
+  display: none;
+}
+.error-sign{
+  position: absolute;
+  right: 121px;
+  top: 17px;
+  display: none;
+}
+.email-status.show,
+.error-sign.show{
+  display: block;
+}
+/*submit-btn*/
+.submit-btn{
+  width: 120px;
+  padding: 17px;
+  border-radius: 50px;
+  background: linear-gradient(272deg, var(--col-soft-red) 0%, rgba(238,140,140,1) 100%);
+  border: none;
+  color: #ffffff;
+  box-shadow: 0px 0px 8px var(--col-soft-red);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.submit-btn:hover{
+  cursor: pointer;
+}
+.submit-btn i{
+  font-size: 1.5rem;
+}
+
+/*----------------------------
+-------IMAGE CONTAINER--------
+-----------------------------*/
+.image-container{
+  background-image: url(../images/hero-desktop.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 40%;
+}
+.image-container::after{
+  content:'';
+  width: 100%;
+  height: 100%;
+  background-color: var(--col-soft-red);
+  opacity: 0.7;
+  position: absolute;
+}
+
+/*----------------------------
+------------MEDIA-------------
+-----------------------------*/
+@media (width:1024px) and (height:600px){
+  .container-text{
+    padding: 3rem 5rem;
+  }
+  .logo{
+    margin-bottom: 2rem;
+  }
+  .main-heading{
+    font-size: 3rem;
+  }
+}
+@media (max-width:780px){
+ .container-text{
+  padding:5rem;
+ }
+ .subscribe-form{
+  width: calc(100% - 1rem);
+ }
+}
+@media (max-width:600px){
+  
+  .container-text{
+    padding: 4rem 2rem 2rem 2rem;
+    width: 75%;
+  }
+  .helper-div{
+    width: 100%;
+    transform: translateY(-50%);
+    top: 50%;
+  }
+  .main-heading,
+  .main-heading span{
+    font-size: 3rem;
+  }
+  .logo{
+    margin-bottom: 30px;
+  }
+  .image-container{
+    width: 25%;
+  }
+  .subscribe-form{
+    border-color: var(--col-dark-grayish-red);
+  }
+
+  .submit-btn{
+    width: 51px;
+    box-shadow: 0px 0px 8px hsl(0deg 0% 5.13% / 46%);
+    background: var(--col-dark-grayish-red);
+    padding: 10px;
+  }
+  .email{
+    padding-left: 1.2rem;
+  }
+  .email::placeholder{
+    color:var(--col-dark-grayish-red);
+  }
+  .error-sign{
+    right: 65px;
+    top: 13px;
+    width: 17px;
+  }
+}
+@media (max-width:360px){
+  .main-heading,
+  .main-heading span{
+    font-size: 2rem;
+  }
+  .email{
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  .submit-btn{
+    width: 45px;
+    height: 37px;
+  }
+  .error-sign{
+    right: 52px;
+    top: 10px;
+  }
+}
